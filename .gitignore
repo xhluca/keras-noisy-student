@@ -1,3 +1,5 @@
 /efficientnet-b0
 /efficientnet-b0.tar.gz
 /temp
+tf_weights
+converted_weights

@@ -32,6 +32,9 @@ def _get_model_by_name(name, *args, **kwargs):
         'efficientnet-b3': efficientnet.tfkeras.EfficientNetB3,
         'efficientnet-b4': efficientnet.tfkeras.EfficientNetB4,
         'efficientnet-b5': efficientnet.tfkeras.EfficientNetB5,
+        'efficientnet-b6': efficientnet.tfkeras.EfficientNetB6,
+        'efficientnet-b7': efficientnet.tfkeras.EfficientNetB7,
+        'efficientnet-l2': efficientnet.tfkeras.EfficientNetL2,
     }
 
     model_fn = models[name]
