@@ -9,10 +9,16 @@ Here's how you can get the weights:
 * [Kaggle](https://www.kaggle.com/xhlulu/efficientnetl2-tfkeras-weights)
 * [Github release](https://github.com/xhlulu/keras-efficientnet-l2/releases/tag/data)
 
-Here's an example (after you `pip install efficientnet`):
+First, make sure to have the library and download the weights:
+```
+pip install efficientnet
+wget https://github.com/xhlulu/keras-efficientnet-l2/releases/download/data/efficientnet-l2_noisy-student_notop.h5
+```
+
+Then run this inside python:
 ```python
 import efficientnet.keras as efn 
 
-model_url = "https://github.com/xhlulu/keras-efficientnet-l2/releases/download/data/efficientnet-l2_noisy-student_notop.h5"
-model = efn.EfficientNetL2(weights=model_url)
+model_path = "./efficientnet-l2_noisy-student_notop.h5"
+model = efn.EfficientNetL2(weights=model_path)
 ```
