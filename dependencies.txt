@@ -1,3 +1,4 @@
 efficientnet
 tensorflow
 numpy
+tqdm
