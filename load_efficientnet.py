@@ -26,6 +26,26 @@ from tensorflow.keras.layers import BatchNormalization, Conv2D, Dense
 
 tf.logging.set_verbosity("INFO")
 
+
+def EfficientNetL2(
+    include_top=True,
+    weights='imagenet',
+    input_tensor=None,
+    input_shape=None,
+    pooling=None,
+    classes=1000,
+    **kwargs
+):
+    return efn.EfficientNet(
+        4.3, 5.3, 800, 0.5,
+        model_name='efficientnet-l2',
+        include_top=include_top, weights=weights,
+        input_tensor=input_tensor, input_shape=input_shape,
+        pooling=pooling, classes=classes,
+        **kwargs
+    )
+
+
 def _get_model_by_name(name, *args, **kwargs):
     models = {
         'efficientnet-b0': efn.EfficientNetB0,
@@ -36,6 +56,7 @@ def _get_model_by_name(name, *args, **kwargs):
         'efficientnet-b5': efn.EfficientNetB5,
         'efficientnet-b6': efn.EfficientNetB6,
         'efficientnet-b7': efn.EfficientNetB7,
+        'efficientnet-l2': EfficientNetL2,
     }
 
     model_fn = models[name]
@@ -92,7 +113,7 @@ def load_weights(model, weights):
 
 
 def convert_tensorflow_model(
-        model_name, model_ckpt, output_file, example_img="misc/panda.jpg", weights_only=True
+        model, model_name, model_ckpt, output_file, example_img="misc/panda.jpg", weights_only=True
 ):
     """ Loads and saves a TensorFlow model. """
     image_files = [example_img]
@@ -111,9 +132,7 @@ def convert_tensorflow_model(
                 weights[variable.name] = variable.eval()
             except:
                 print(f"Skipping variable {variable.name}, an exception occurred")
-    model = _get_model_by_name(
-        model_name, include_top=True, input_shape=None, weights=None, classes=1000
-    )
+
     load_weights(model, weights)
     output_file = f"{output_file}.h5"
     if weights_only:
@@ -159,7 +178,12 @@ if __name__ == "__main__":
     from efficientnet_tf import eval_ckpt_main
 
     true_values = ("yes", "true", "t", "1", "y")
+    
+    model = _get_model_by_name(
+        model_name, include_top=True, input_shape=None, weights=None, classes=1000
+    )
     convert_tensorflow_model(
+        model=model,
         model_name=args.model_name,
         model_ckpt=args.tf_checkpoint,
         output_file=args.output_file,
