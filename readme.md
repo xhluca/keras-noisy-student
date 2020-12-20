@@ -1,3 +1,5 @@
+Note: this is not currently working due to a bug in the keras efficientnet implementation
+
 code modified/retrieved from:
 
 * https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet
