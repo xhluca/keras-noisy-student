@@ -180,8 +180,7 @@ if __name__ == "__main__":
     true_values = ("yes", "true", "t", "1", "y")
     
     model = _get_model_by_name(
-        model_name, include_top=True, input_shape=None, weights=None, classes=1000
-    )
+        args.model_name, include_top=True, input_shape=None, weights=None, classes=1000)
     convert_tensorflow_model(
         model=model,
         model_name=args.model_name,
