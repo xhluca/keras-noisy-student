@@ -31,7 +31,7 @@ model = efn.EfficientNetL2(weights="./efficientnet-l2_noisy-student.h5", include
 ```
 
 For `tensorflow<=2.3.1`, there's a bug that would cause the L2 model to not load correctly. To use it, apply the following hack:
-```
+```python
 model = efn.EfficientNetL2(
   weights="./efficientnet-l2_noisy-student_notop.h5", 
   include_top=False,
