@@ -20,21 +20,22 @@ import sys
 import numpy as np
 
 import tensorflow.compat.v1 as tf
-import efficientnet.tfkeras
+# import efficientnet.tfkeras
+from tensorflow.python.keras.applications import efficientnet as efn
 from tensorflow.keras.layers import BatchNormalization, Conv2D, Dense
 
+tf.logging.set_verbosity("INFO")
 
 def _get_model_by_name(name, *args, **kwargs):
     models = {
-        'efficientnet-b0': efficientnet.tfkeras.EfficientNetB0,
-        'efficientnet-b1': efficientnet.tfkeras.EfficientNetB1,
-        'efficientnet-b2': efficientnet.tfkeras.EfficientNetB2,
-        'efficientnet-b3': efficientnet.tfkeras.EfficientNetB3,
-        'efficientnet-b4': efficientnet.tfkeras.EfficientNetB4,
-        'efficientnet-b5': efficientnet.tfkeras.EfficientNetB5,
-        'efficientnet-b6': efficientnet.tfkeras.EfficientNetB6,
-        'efficientnet-b7': efficientnet.tfkeras.EfficientNetB7,
-        'efficientnet-l2': efficientnet.tfkeras.EfficientNetL2,
+        'efficientnet-b0': efn.EfficientNetB0,
+        'efficientnet-b1': efn.EfficientNetB1,
+        'efficientnet-b2': efn.EfficientNetB2,
+        'efficientnet-b3': efn.EfficientNetB3,
+        'efficientnet-b4': efn.EfficientNetB4,
+        'efficientnet-b5': efn.EfficientNetB5,
+        'efficientnet-b6': efn.EfficientNetB6,
+        'efficientnet-b7': efn.EfficientNetB7,
     }
 
     model_fn = models[name]
@@ -155,7 +156,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     sys.path.append(args.source)
-    import eval_ckpt_main
+    from efficientnet_tf import eval_ckpt_main
 
     true_values = ("yes", "true", "t", "1", "y")
     convert_tensorflow_model(
