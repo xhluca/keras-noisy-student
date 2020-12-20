@@ -3,5 +3,4 @@
 /temp
 tf_weights
 converted_weights
-*pyc
-efficientnet_tf/__pycache__/*
+efficientnet_tf/__pycache__
