@@ -27,7 +27,7 @@ from absl import logging
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-import lars_optimizer
+from . import lars_optimizer
 from tensorflow.python.tpu import tpu_function  # pylint:disable=g-direct-tensorflow-import
 
 FLAGS = flags.FLAGS

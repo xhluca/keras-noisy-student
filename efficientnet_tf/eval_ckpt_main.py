@@ -28,9 +28,9 @@ from absl import flags
 from absl import logging
 import tensorflow.compat.v1 as tf
 
-import model_builder_factory
-import preprocessing
-import utils
+from . import model_builder_factory
+from . import preprocessing
+from . import utils
 
 flags.DEFINE_string('model_name', 'efficientnet-b0', 'Model name to eval.')
 flags.DEFINE_string('runmode', 'examples', 'Running mode: examples or imagenet')

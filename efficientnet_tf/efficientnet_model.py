@@ -33,8 +33,8 @@ import six
 from six.moves import xrange
 import tensorflow.compat.v1 as tf
 
-import utils
-from condconv import condconv_layers
+from . import utils
+from .condconv import condconv_layers
 
 GlobalParams = collections.namedtuple('GlobalParams', [
     'batch_norm_momentum', 'batch_norm_epsilon', 'dropout_rate', 'data_format',

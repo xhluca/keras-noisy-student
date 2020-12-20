@@ -14,11 +14,11 @@
 # ==============================================================================
 """Utilities for model builder or input size."""
 
-import efficientnet_builder
-from condconv import efficientnet_condconv_builder
-from edgetpu import efficientnet_edgetpu_builder
-from lite import efficientnet_lite_builder
-from tpu import efficientnet_x_builder
+from . import efficientnet_builder
+from .condconv import efficientnet_condconv_builder
+from .edgetpu import efficientnet_edgetpu_builder
+from .lite import efficientnet_lite_builder
+from .tpu import efficientnet_x_builder
 
 
 def get_model_builder(model_name):

@@ -21,9 +21,9 @@ from __future__ import print_function
 import os
 import tensorflow.compat.v1 as tf
 
-import efficientnet_builder
-import efficientnet_model
-import utils
+from .. import efficientnet_builder
+from .. import efficientnet_model
+from .. import utils
 
 # The input tensor is in the range of [0, 255], we need to scale them to the
 # range of [0, 1]
