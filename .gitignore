@@ -20,3 +20,4 @@ efficientnet_tf/lite/__pycache__/__init__.cpython-37.pyc
 efficientnet_tf/lite/__pycache__/efficientnet_lite_builder.cpython-37.pyc
 efficientnet_tf/tpu/__pycache__/__init__.cpython-37.pyc
 efficientnet_tf/tpu/__pycache__/efficientnet_x_builder.cpython-37.pyc
+.vscode/settings.json
